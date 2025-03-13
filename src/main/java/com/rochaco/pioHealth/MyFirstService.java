@@ -2,19 +2,21 @@ package com.rochaco.pioHealth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 @Service
+@PropertySource("classpath:custom.properties")
 public class MyFirstService {
 
-    private MyFirstClass myFirstClass;
-    // environment bean
-    private Environment environment;
+    private final MyFirstClass myFirstClass;
+    @Value("${custom.prop}")
+    private String customProperty;
 
-    @Autowired
-    public void setMyFirstClass(
-            @Qualifier("myFirstClass") MyFirstClass myFirstClass) {
+    public MyFirstService(
+            @Qualifier("mySecondBean") MyFirstClass myFirstClass) {
         this.myFirstClass = myFirstClass;
     }
 
@@ -22,20 +24,7 @@ public class MyFirstService {
         return  "the dependency is saying: " + myFirstClass.sayHello();
     }
 
-    @Autowired
-    public void setEnvironment(Environment environment) {
-        this.environment = environment;
-    }
-
-    public String getJavaVersion(){
-        return  environment.getProperty("java.version");
-    }
-
-    public String getOsName(){
-        return  environment.getProperty("os.name");
-    }
-
-    public String readProperty(){
-        return  environment.getProperty("my.custom.property");
+    public String getCustomProperty() {
+        return customProperty;
     }
 }
