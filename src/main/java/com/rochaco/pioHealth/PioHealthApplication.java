@@ -18,6 +18,7 @@ public class PioHealthApplication {
 		System.out.println(myFirstService.tellStory());
 		System.out.println(myFirstService.getCustomProperty());
 		System.out.println(myFirstService.getSecondCustomProperty());
+		System.out.println(myFirstService.getPropertyFromApplicationProperties());
 	}
 
 

@@ -20,6 +20,9 @@ public class MyFirstService {
     private String customProperty;
     @Value("${second.custom.prop}")
     private String secondCustomProperty;
+    // esta es del archivo original de spring
+    @Value("${my.custom.property}")
+    private String propertyFromApplicationProperties;
 
     public MyFirstService(
             @Qualifier("mySecondBean") MyFirstClass myFirstClass) {
@@ -36,5 +39,9 @@ public class MyFirstService {
 
     public String getSecondCustomProperty() {
         return secondCustomProperty;
+    }
+
+    public String getPropertyFromApplicationProperties() {
+        return propertyFromApplicationProperties;
     }
 }
