@@ -10,8 +10,8 @@ public class MyFirstService {
     private MyFirstClass myFirstClass;
 
     @Autowired
-    public void injectDependencies(
-            @Qualifier("mySecondBean") MyFirstClass myFirstClass) {
+    public void setMyFirstClass(
+            @Qualifier("myFirstClass") MyFirstClass myFirstClass) {
         this.myFirstClass = myFirstClass;
     }
 
