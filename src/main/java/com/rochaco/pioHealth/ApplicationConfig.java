@@ -22,7 +22,7 @@ public class ApplicationConfig {
         return new MyFirstClass("second bean");
     }
     @Bean()
-    @Primary
+    //@Primary
     public MyFirstClass myThirdBean() {
         return new MyFirstClass("third bean");
     }
