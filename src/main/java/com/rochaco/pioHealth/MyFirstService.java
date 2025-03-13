@@ -17,7 +17,7 @@ public class MyFirstService {
     // ya no necsitamos el autowired, spring buscara
     // inyectar todo lo que sea inyectable
     public MyFirstService(
-           @Qualifier("bean2") MyFirstClass myFirstClass) {
+           MyFirstClass myFirstClass) {
         this.myFirstClass = myFirstClass;
     }
 
